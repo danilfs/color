@@ -45,3 +45,9 @@ body{
     transition: background 1s;
     
 }
+
+.col1 button {
+    text-shadow: aqua;
+    background-color: black;
+    
+}
