@@ -1,5 +1,18 @@
 const cols = document.querySelectorAll('.col')
-const buttonU = document.querySelector('.col1')
+
+document.addEventListener('click' , (event) => {
+    const type = event.target.dataset.type
+
+    if(type === 'lock') {
+        console.log(event.target);
+    }
+})
+
+document.addEventListener ('keydown' , (event) => {
+    if(event.code.toLowerCase() === 'space'){
+        setRandomColor()
+    }
+} )
 
 function generateRandomColor () {
     const hexCode = '123456789ABCDEF'
@@ -13,10 +26,13 @@ function generateRandomColor () {
 function setRandomColor () {
     cols.forEach ((col) => {
         const text = col.querySelector('h2')
+        const button = col.querySelector('button')
         const color = chroma.random()
         text.textContent = color
-        col.style.backgroundColor = color
+        col.style.background = color
+
         setTextColor(text,color)
+        setTextColor(button,color)
     })
 }
 
